@@ -13,12 +13,23 @@
   
 }
 
+h1 {
+  text-align: center;
 
+}
 
+hr {
+  color: var(--accent);
 
+}
+
+p {
+  font-size: 1.1rem;
+
+}
 
 html {
-  font-size: clamp(0.5rem, 1.5vw, 0.9rem);
+  font-size: clamp(0.6rem, 1.5vw, 1.0rem);
 
 }
 
@@ -32,6 +43,7 @@ body {
   background-repeat: no-repeat;
   color: var(--txt_light);
   transition: color 0.5s ease-in-out;
+  background-color: #000;
 
 }
 
@@ -73,7 +85,7 @@ body.dark-mode {
 
 }
 
-body:not(.dark-mode) {
+body {
   background-image: url('/img/bg/home-dark.png');
   opacity: 1;
 
@@ -96,6 +108,11 @@ body.dark-mode {
 
 }
 
+img {
+padding: 1rem;
+
+}
+
 .page-section.active {
   opacity: 1;
   visibility: visible;
@@ -105,6 +122,9 @@ body.dark-mode {
 
 ul {
   list-style-type: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -152,6 +172,7 @@ li button {
   text-align: center;
   padding: 0.2em 0;
   width: fit-content;
+  height: fit-content;
   text-decoration: none;
   transition: color 0.5s ease-in-out;
   font-size: 2rem;
