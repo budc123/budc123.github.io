@@ -1,0 +1,214 @@
+html.Sunrise { /* Defines colours */
+  --textCol: #ffffff; /* Text Col */
+  --textColGrey: #cacaca;
+
+  --pageBgBottom: #8c474a; /* Webpage Bottom Background Col */
+  --pageBgTop: #4f6694; /* Webpage Top Background Col */
+  --bgDark: #754937; /* Dark Background Col */
+
+  --navBg: #aa6a3366; /* Navbar Background Col */
+  --navItem: #db853a88; /* Navbar Item Col */
+  --navItemHov: #dd6f4388; /* Navbar Hovered Item Col */
+  --navItemSel: #d8753c; /* Navbar Selected Item Col */
+  --navItemGrey: #4b4b4b96;
+  
+}
+
+html.Noon { /* Defines colours */
+  --textCol: #313131; /* Text Col */
+  --textColGrey: #cacaca;
+
+  --pageBgBottom: #48598d; /* Webpage Bottom Background Col */
+  --pageBgTop: #6b7fa7; /* Webpage Top Background Col */
+  --bgDark: #373d75; /* Dark Background Col */
+
+  --navBg: #3353aa66; /* Navbar Background Col */
+  --navItem: #3a58db88; /* Navbar Item Col */
+  --navItemHov: #4332dd88; /* Navbar Hovered Item Col */
+  --navItemSel: #245fcc; /* Navbar Selected Item Col */
+  --navItemGrey: #4b4b4b96;
+  
+}
+
+html.Sunset { /* Defines colours */
+  --textCol: #ffffff; /* Text Col */
+  --textColGrey: #cacaca;
+
+  --pageBgBottom: #422b59; /* Webpage Bottom Background Col */
+  --pageBgTop: #6a45a1; /* Webpage Top Background Col */
+  --bgDark: #5a2f64; /* Dark Background Col */
+
+  --navBg: #7d279766; /* Navbar Background Col */
+  --navItem: #ad3adb88; /* Navbar Item Col */
+  --navItemHov: #dd43dd88; /* Navbar Hovered Item Col */
+  --navItemSel: #b028da; /* Navbar Selected Item Col */
+  --navItemGrey: #4b4b4b96;
+  
+}
+
+html.Night { /* Defines colours */
+  --textCol: #d3d3d3; /* Text Col */
+  --textColGrey: #999999;
+
+  --pageBgBottom: #0a1f26; /* Webpage Bottom Background Col */
+  --pageBgTop: #191924; /* Webpage Top Background Col */
+  --bgDark: #45425c; /* Dark Background Col */
+
+  --navBg: #60608566; /* Navbar Background Col */
+  --navItem: #7673a388; /* Navbar Item Col */
+  --navItemHov: #5d60b988; /* Navbar Hovered Item Col */
+  --navItemSel: #b1accf; /* Navbar Selected Item Col */
+  --navItemGrey: #2b2b2b96;
+  
+}
+
+html {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+@font-face { /* Adds the rodondo font (not even rain world related i just like the font in general) */
+  font-family: Rodondo;
+  src: url(img/Rodondo.otf);
+}
+
+
+.layout { /* Grid layout which is kinda obsolete but things still use it so it stays */
+  display: grid;
+  grid:
+    "navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar navbar" 2.7vw
+    "main main main main main main main main main main main main" 85vh
+    "footer footer footer footer footer footer footer footer footer footer footer pixCat" 10vh
+    / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px;
+}
+.navbar { grid-area: navbar; }
+.main { grid-area: main; padding-left: 10vw; padding-right: 10vw;}
+.footer { grid-area: footer; }
+.pixCat { grid-area: pixCat; padding: 0px;}
+
+body{
+  background-color: var(--pageBgBottom);
+  margin: 0%;
+  color: var(--textCol);
+  font-size: 0.9vw;
+}
+
+h1{
+  text-align: center;
+  width: 100%;
+  height: 2vw;
+  font-family: Rodondo;
+  font-size: 2.5vw;
+  margin: 0.7vw
+}
+
+hr{
+  color: var(--bgDark);
+}
+
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+.background {
+  transform: translateZ(-20px) scale(3);
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  height:auto;
+  width: 110%;
+  object-fit: cover;
+  object-position: top;
+  z-index: -2;
+}
+
+.content {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  z-index: -1;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0.25vw;
+  background-color: var(--navBg);
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  width: 80vw;
+  height: 3vw;
+  border-radius: 2vw;
+  font-size: 0.9vw;
+  
+}
+
+ul li:last-child {
+  position: fixed;
+  right: 0;
+  margin-right: 10vw;
+}
+
+ul li {
+  margin-left: 0.25vw;
+  margin-right: 0.25vw;
+}
+
+ul li a {
+  display: block;
+  background-color: var(--navItem);
+  color: white;
+  padding-left: 1vw;
+  padding-right: 2vw;
+  padding-top: 0.82vw;
+  padding-bottom: 1.12vw;
+  text-decoration: none;
+  border-radius: 1.5vw;
+  height: 1vw;
+}
+
+ul li a#grey:not(.active) {
+  background-color: var(--navItemGrey);
+  color: var(--textColGrey);
+}
+
+ul li a i {
+  position: fixed;
+  padding-top: 0.15vw;
+  padding-left: 0.4vw;
+}
+
+ul li a:hover:not(.active) {
+  background-color: var(--navItemHov);
+}
+
+ul li a.active {
+  background-color: var(--navItemSel);
+}
+
+img {
+  user-select: none;
+}
+
+
+#portrait-warning { /* Styles for the portrait warning */
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: var(--bgDark);
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 100%;
+
+}
